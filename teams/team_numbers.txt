@@ -1,0 +1,14 @@
+{
+'380.l.1000000.t.1': 'Manager 1 Name',
+'380.l.000000.t.2': 'Manager 2 Name',
+'380.l.000000.t.3': 'Manager 3 Name',
+'380.l.000000.t.4': 'Manager 4 Name',
+'380.l.000000.t.5': 'Manager 5 Name',
+'380.l.000000.t.6': 'Manager 6 Name',
+'380.l.000000.t.7': 'Manager 7 Name',
+'380.l.000000.t.8': 'Manager 8 Name',
+'380.l.000000.t.9': 'Manager 9 Name',
+'380.l.000000.t.10': 'Manager 10 Name',
+'380.l.000000.t.11': 'Manager 11 Name',
+'380.l.000000.t.12': 'Manager 12 Name'
+}
