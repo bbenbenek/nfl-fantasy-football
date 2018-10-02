@@ -1,5 +1,5 @@
 =============================================================================
-This guide will get you started pulling data from your Yahoo Fantasy Football
+# This guide will get you started pulling data from your Yahoo Fantasy Football
 League
 =============================================================================
 
