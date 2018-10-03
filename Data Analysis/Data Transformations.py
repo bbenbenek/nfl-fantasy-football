@@ -110,7 +110,7 @@ for week in range(1, rosters['num_weeks']+1): #16 weeks total
                 pass
 
             # URL to get player points each week from Yahoo API
-            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.155909/players;player_keys='+str(player_key)+'/stats;type=week;week='+str(week)
+            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/players;player_keys='+str(player_key)+'/stats;type=week;week='+str(week)
             response = oauth.session.get(url, params={'format': 'json'})
             player_points_json = response.json()
             player_points = float(player_points_json['fantasy_content']['league'][1]['players']['0']['player'][1]['player_points']['total'])
