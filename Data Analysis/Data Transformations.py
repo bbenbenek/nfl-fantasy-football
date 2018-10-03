@@ -203,8 +203,8 @@ for week in range(1, rosters['num_weeks']+1): #16 weeks total
         df_manager_team.rename(columns = {'manager_name':manager_name}, inplace = True) #change name to match current manager name
         df_points.rename(columns = {'player_points': manager_name}, inplace = True)
 
-        df_wk_roster = pd.concat([df_wk_roster, df_manager_team], axis=1) # join the full league weekly roster with managers name
-        df_wk_points = pd.concat([df_wk_points, df_points], axis=1)
+        df_wk_roster = pd.concat([df_wk_roster, df_manager_team], axis=1, sort=True) # join the full league weekly roster with managers name
+        df_wk_points = pd.concat([df_wk_points, df_points], axis=1, sort=True)
         team += 1
         #### END TEAM FOR LOOP  ####
         #### CONTINUE WEEK LOOP ####
