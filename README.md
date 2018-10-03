@@ -136,7 +136,7 @@ league:
       Yahoo Account Info --> Recent Activity --> Apps Connected to Your Account
       --> 'remove' access to your created app*
 
-5. __Update Data_Transformations.py__
+5. __Update Data_Transformations.py under the Data Analysis Folder__
   - 5.1) Update your League ID and Game Key (1 instance)
 
 6. __Have fun exploring the data!__
