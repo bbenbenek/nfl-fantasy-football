@@ -1,5 +1,5 @@
 =============================================================================
-# This guide will get you started pulling data from your Yahoo Fantasy Football League
+## This guide will get you started pulling data from your Yahoo Fantasy Football League
 =============================================================================
 
 Please use this data to make some slick visualizations of just how awesome,
@@ -29,7 +29,7 @@ steps in one application...that's up to you. You can easily edit JSON files by
 changing the extension from .json to .txt, make the desired edits, and change
 the extension back to .json.
 
-# Requirements:
+## Requirements:
 
   - Python 3
   - IDE/text editor of your choice
@@ -47,7 +47,7 @@ the extension back to .json.
     - Numpy (http://www.numpy.org/)
     - Matplotlib (https://matplotlib.org/)
 
-# League Details
+## League Details
 
   - This script assumes a *16-week schedule*, including playoffs. If your league
     differs, then you'll need to change the details in the
@@ -60,7 +60,7 @@ the extension back to .json.
     week. *As a rule of thumb, add 4 bench ('BN') to your roster here to
     account for the unknown*
 
-# Background Information
+## Background Information
 
 Yahoo has been hellbent on killing their API for the last few years. In an
 effort to try and gather some raw data from my fantasy football league I
@@ -83,7 +83,7 @@ league:
     league's unique Yahoo Fantasy Football URL:
     https://football.fantasysports.yahoo.com/f1/XXXXXX
 
-# Process for updating the script with you league information:
+## Process for updating the script with you league information:
 
 1. __Update fantasy_stats.py__
   - 1.1) Find/Replace 'XXXXXX' with your League ID (5 instances)
@@ -136,10 +136,8 @@ league:
       Yahoo Account Info --> Recent Activity --> Apps Connected to Your Account
       --> 'remove' access to your created app*
 
-5. __Double check team count and season length__
-  - 5.1) If you skipped over the `Assumptions` section, then go back a revisit it
-    to make sure you have the right number of weeks and teams specified in the
-    script.
+5. __Update Data_Transformations.py__
+  - 5.1) Update your League ID and Game Key (1 instance)
 
 6. __Have fun exploring the data!__
   - 6.1) Run `fantasy_stats.py` each week to update all data. Out-weeks will
