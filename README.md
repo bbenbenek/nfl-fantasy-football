@@ -90,15 +90,25 @@ league:
   - 1.2) Each year, replace Game Key with new Game Key (also, 5 instances)
     - 2018 Game Key for NFL is '380'
 
-2. __Update ./teams/team_numbers.txt__
+2. __Update /teams/team_numbers.txx, team_mapping_full.txt, and team_mapping_initials.txt__
   - 2.1) For first time users, update the manager's nickname/real name for each
     team. Go to https://football.fantasysports.yahoo.com/f1/XXXXXX/1 to find out
     which manager is considered Team 1 in your league (i.e. replace
     'Manager 1 Name' with 'Steve'). Repeat for each team. Record each manager's
     name in this .txt file accordingly. Add or delete any extra teams as needed,
     as this script was originally written for a 12-team league. Just be sure to
-    use the correct formatting (comma at end of line, except for the last line)
-
+    use the correct formatting (comma at end of line, except for the last line).
+    This file is currently used as reference, and not actually used in the script,
+    but it may in the future. Use for your reference.
+  - 2.2) For team_mapping files, do the same as above, just with the actual Yahoo
+    manager names. For example, if a managers name is Dwayne "The Rock" Johnson, 
+    he may put his initial, "DTRJ", as his name in his Yahoo account. You'll want to fill out
+    the team_mapping file as, "DTRJ":"The Rock", OR "DTRJ":"Dwayne", whatever you 
+    want the display name to be in all your data files. If there's two managers
+    with the same name, you may want to differentiate them. You can find the Yahoo
+    name listed in each players profile. Full names are used in the Data Transformations
+    script, and the Initials are used in the visualization script for more visually
+    appealing labels.
 
 3. __Register for Yahoo Developer Network and get your credentials:__
   - 3.1) Register for a  Yahoo account at https://yahoo.com/
