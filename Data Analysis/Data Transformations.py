@@ -49,6 +49,10 @@ df_wk_players = pd.DataFrame(columns = ['player_points', 'player_key'])
 df_wk_players = df_wk_players.set_index('player_key')
 df_wk_points = pd.DataFrame(index = new_index)
 
+# import dictionary of Yahoo Manager Names to Real Life Nicknames
+with open('../teams/team_mapping_full.txt', 'r') as f:
+    name_dict = dict(eval(f.read()))
+
 ##### LOOP THROUGH ALL WEEKS, TEAMS, AND PLAYERS #####
 #for week in range(1, 2): # TEST
 for week in range(1, rosters['num_weeks']+1): #16 weeks total
@@ -110,7 +114,7 @@ for week in range(1, rosters['num_weeks']+1): #16 weeks total
                 pass
 
             # URL to get player points each week from Yahoo API
-            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/players;player_keys='+str(player_key)+'/stats;type=week;week='+str(week)
+            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.155909/players;player_keys='+str(player_key)+'/stats;type=week;week='+str(week)
             response = oauth.session.get(url, params={'format': 'json'})
             player_points_json = response.json()
             player_points = float(player_points_json['fantasy_content']['league'][1]['players']['0']['player'][1]['player_points']['total'])
@@ -203,8 +207,8 @@ for week in range(1, rosters['num_weeks']+1): #16 weeks total
         df_manager_team.rename(columns = {'manager_name':manager_name}, inplace = True) #change name to match current manager name
         df_points.rename(columns = {'player_points': manager_name}, inplace = True)
 
-        df_wk_roster = pd.concat([df_wk_roster, df_manager_team], axis=1, sort=True) # join the full league weekly roster with managers name
-        df_wk_points = pd.concat([df_wk_points, df_points], axis=1, sort=True)
+        df_wk_roster = pd.concat([df_wk_roster, df_manager_team], axis=1) # join the full league weekly roster with managers name
+        df_wk_points = pd.concat([df_wk_points, df_points], axis=1)
         team += 1
         #### END TEAM FOR LOOP  ####
         #### CONTINUE WEEK LOOP ####
