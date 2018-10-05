@@ -1,0 +1,14 @@
+{
+'Manager 1 Yahoo Name': 'Nickname/Real Name 1',
+'Manager 2 Yahoo Name': 'Nickname/Real Name 2',
+'Manager 3 Yahoo Name': 'Nickname/Real Name 3',
+'Manager 4 Yahoo Name': 'Nickname/Real Name 4',
+'Manager 5 Yahoo Name': 'Nickname/Real Name 5',
+'Manager 6 Yahoo Name': 'Nickname/Real Name 6',
+'Manager 7 Yahoo Name': 'Nickname/Real Name 7',
+'Manager 8 Yahoo Name': 'Nickname/Real Name 8',
+'Manager 9 Yahoo Name': 'Nickname/Real Name 9',
+'Manager 10 Yahoo Name': 'Nickname/Real Name 10',
+'Manager 11 Yahoo Name': 'Nickname/Real Name 11',
+'Manager 12 Yahoo Name': 'Nickname/Real Name 12'
+}
