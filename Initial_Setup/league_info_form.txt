@@ -1,12 +1,12 @@
 {
-  "num_teams": 12,
-  "num_weeks": 16,
+  "num_teams": 10,
+  "num_weeks": 17,
   "roster": [
             'QB',
             'WR1', 'WR2', 'WR3',
             'RB1', 'RB2',
             'TE',
-            'W/R/T',
+            'W/R',
             'BN1', 'BN2', 'BN3', 'BN4', 'BN5', 'BN6', 'BN7', 'BN8', 'BN9', 'BN10',
             'K',
             'DEF'

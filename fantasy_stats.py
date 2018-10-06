@@ -40,7 +40,7 @@ class UpdateData():
         load_file.close()
 
         yahoo_api._login() # get the newest transactions and write over the existing new_transactions
-        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/transactions'
+        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/nfl.l.XXXXXX/transactions'
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
         with open('./transactions/Transaction_new.json', 'w') as outfile:
@@ -162,7 +162,7 @@ class UpdateData():
     def UpdateLeague(self):
         # LEAGUE OVERVIEW
         yahoo_api._login()
-        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/'
+        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/nfl.l.XXXXXX/'
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
         with open('league.json', 'w') as outfile:
@@ -172,7 +172,7 @@ class UpdateData():
     def UpdateLeagueStandings(self):
         # STANDINGS
         yahoo_api._login()
-        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/standings'
+        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/nfl.l.XXXXXX/standings'
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
         with open('standings.json', 'w') as outfile:
@@ -184,7 +184,7 @@ class UpdateData():
         yahoo_api._login()
         week = 1
         while week < num_weeks+1: #assumes 16 week-schedule
-            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/scoreboard;week='+str(week)
+            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/nfl.l.XXXXXX/scoreboard;week='+str(week)
             response = oauth.session.get(url, params={'format': 'json'})
             r = response.json()
             file_name = 'week_' + str(week) + 'scoreboard.json'
@@ -211,7 +211,7 @@ class UpdateData():
         for week in range(1, num_weeks+1): #assumes 16-week schedule
             team = 1
             for team in range(1, num_teams+1): #assumes 12-team league
-                url = 'https://fantasysports.yahooapis.com/fantasy/v2/team/380.l.XXXXXX.t.'+str(team)+'/roster;week='+str(week)
+                url = 'https://fantasysports.yahooapis.com/fantasy/v2/team/nfl.l.XXXXXX.t.'+str(team)+'/roster;week='+str(week)
                 response = oauth.session.get(url, params={'format': 'json'})
                 r = response.json()
                 file_name = 'team_'+str(team)+'_wk_' + str(week) + '_roster.json'
