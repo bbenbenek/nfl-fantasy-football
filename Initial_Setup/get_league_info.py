@@ -17,7 +17,7 @@ class Yahoo_Api():
         self._authorization = None
     def _login(self):
         global oauth
-        oauth = OAuth2(None, None, from_file='./auth/oauth2yahoo.json')
+        oauth = OAuth2(None, None, from_file='../auth/oauth2yahoo.json')
         if not oauth.token_is_valid():
             oauth.refresh_access_token()
 
@@ -36,7 +36,7 @@ def main():
 ##### Get Yahoo Auth ####
 
     # Yahoo Keys
-    with open('./auth/oauth2yahoo.json') as json_yahoo_file:
+    with open('../auth/oauth2yahoo.json') as json_yahoo_file:
         auths = json.load(json_yahoo_file)
     yahoo_consumer_key = auths['consumer_key']
     yahoo_consumer_secret = auths['consumer_secret']
