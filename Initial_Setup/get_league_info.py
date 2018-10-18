@@ -26,7 +26,7 @@ class UpdateData():
     def UpdateYahooLeagueInfo(self):
         # UPDATE LEAGUE GAME ID
         yahoo_api._login()
-        url = 'http://fantasysports.yahooapis.com/fantasy/v2/game/nfl'
+        url = 'https://fantasysports.yahooapis.com/fantasy/v2/game/nfl'
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
         with open('YahooGameInfo.json', 'w') as outfile:
