@@ -92,6 +92,21 @@ for week in range(1, rosters['num_weeks']+1): #16 weeks total
         player_index = roster['fantasy_content']['team'][1]['roster']['0']['players'] # in case a manager does not have all 16 roster spots filled
 
         ##### START PLAYER LOOP #####
+        
+        player_list = []
+        for player_num in range(0, len(player_index)-1): 
+            player = roster['fantasy_content']['team'][1]['roster']['0']['players'][str(player_num)]
+            player_key = player['player'][0][0]['player_key']
+            player_list.append(player_key)
+        # Join all player keys so they can all be called at the same time from the API
+        all_players_string = ", ".join(player_list)
+        
+        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/'+game_key+'.l.'+league_id+'/players;player_keys='+all_players_string+'/stats;type=week;week='+str(week)
+        response = oauth.session.get(url, params={'format': 'json'})
+        player_points_json = response.json()
+        
+        
+        
         wr_count = 1
         rb_count = 1
         bn_count = 1
@@ -118,12 +133,10 @@ for week in range(1, rosters['num_weeks']+1): #16 weeks total
                 team_abbr = player['player'][0][8]['editorial_team_abbr']
             except:
                 pass
-
-            # URL to get player points each week from Yahoo API
-            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/'+game_key+'.l.'+league_id+'/players;player_keys='+str(player_key)+'/stats;type=week;week='+str(week)
-            response = oauth.session.get(url, params={'format': 'json'})
-            player_points_json = response.json()
-            player_points = float(player_points_json['fantasy_content']['league'][1]['players']['0']['player'][1]['player_points']['total'])
+            
+            # We already grabbed all the players points all at once before this for loop started. Now we can get each
+            # players points without needing an API call each time. This equals SPEEEEED
+            player_points = float(player_points_json['fantasy_content']['league'][1]['players'][str(player_num)]['player'][1]['player_points']['total'])
 
             # replace data in dataframe based on index of roster position
                 # this needs to happen because the BN position is not consistant.
