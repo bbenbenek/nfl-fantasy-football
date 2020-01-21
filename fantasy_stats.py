@@ -177,7 +177,11 @@ class UpdateData():
         r = response.json()
         with open('standings.json', 'w') as outfile:
             json.dump(r, outfile)
-            return;
+            
+        global game_key
+        game_key = r['fantasy_content']['game'][0]['game_key'] # game key as type-string
+        
+        return;
 
     def UpdateScoreboards(self):
         # WEEKLY SCORE BOARD
@@ -262,6 +266,9 @@ def main():
 
     global num_weeks
     num_weeks = rosters['num_weeks']
+    
+    global league_id
+    league_id = str(osters['league_id])
 
 #### Where the tweets happen ####
     bot = Bot(yahoo_api)
@@ -275,18 +282,25 @@ class Bot():
     def run(self):
         # Data Updates
         UD = UpdateData()
-        UD.UpdateLeague()
-        print('League update - Done')
+                           
         UD.UpdateYahooLeagueInfo()
         print('Yahoo League Info Updated')
+                           
+        UD.UpdateLeague()
+        print('League update - Done')
+                           
         UD.UpdateLeagueStandings()
         print('Standings update - Done')
+                           
         UD.UpdateScoreboards()
         print('Scoreboards update - Done')
+                           
         UD.UpdateTransactions()
         print('Transactions update - Done')
+                           
         UD.UpdateRosters()
         print('Rosters update - Done')
+                           
         print('Update Complete')
 
 if __name__ == "__main__":
