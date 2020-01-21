@@ -59,8 +59,8 @@ the extension back to .json.
     players, or empty roster positions during the waiver/drop/add period each
     week. *As a rule of thumb, add 4 bench ('BN') to your roster here to
     account for the unknown*
-  - Add your 'league_id'. This can be found in your league url: i.e.
-  "https://football.fantasysports.yahoo.com/f1/XXXXXX"
+  - Add your 'league_id'. This can be found in your league's unique Yahoo Fantasy 
+  Football URL: "https://football.fantasysports.yahoo.com/f1/XXXXXX"
 
 ## Background Information
 
@@ -73,14 +73,15 @@ application. The login and authentication process used in these scripts should
 be applicable to every other fantasy sport league hosted on Yahoo, as long as
 the appropriate Game Key is utilized.
 
-To start the season, you need to update both the Yahoo Game Key and League ID.
 In the code you'll see the following notation used to identify your specific
 league:
 
-"380.l.XXXXXX"
-  - 380 is the NFL Game Key which Yahoo doesn't publish. Use the
-    `get_league_info.py` script to find this key each year. This should also
-    work to find MLB, NHL, etc Game Keys
+"game_key.l.league_id"
+  - game_key is the NFL Game Key which Yahoo doesn't publish. The latest update
+  will automatically generate this key for you. 
+    - If you want to find MLB, NHL, or another game key, you can use the 
+    `get_league_info.py` script to find that specific key. Just specify the sport you
+    are looking for.
   - XXXXXX is the league ID, this is published each year on the on your
     league's unique Yahoo Fantasy Football URL:
     https://football.fantasysports.yahoo.com/f1/XXXXXX
