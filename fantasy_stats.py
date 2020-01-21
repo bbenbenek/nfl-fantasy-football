@@ -167,7 +167,7 @@ class UpdateData():
         r = response.json()
         with open('league.json', 'w') as outfile:
             json.dump(r, outfile)
-            return;
+        return;
 
     def UpdateLeagueStandings(self):
         # STANDINGS
@@ -177,9 +177,6 @@ class UpdateData():
         r = response.json()
         with open('standings.json', 'w') as outfile:
             json.dump(r, outfile)
-            
-        global game_key
-        game_key = r['fantasy_content']['game'][0]['game_key'] # game key as type-string
         
         return;
 
@@ -205,7 +202,10 @@ class UpdateData():
         r = response.json()
         with open('YahooGameInfo.json', 'w') as outfile:
             json.dump(r, outfile)
-            return;
+            
+        global game_key
+        game_key = r['fantasy_content']['game'][0]['game_key'] # game key as type-string
+        return;
 
 
     def UpdateRosters(self):
@@ -268,7 +268,7 @@ def main():
     num_weeks = rosters['num_weeks']
     
     global league_id
-    league_id = str(osters['league_id])
+    league_id = str(rosters['league_id])
 
 #### Where the tweets happen ####
     bot = Bot(yahoo_api)
