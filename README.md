@@ -152,7 +152,7 @@ league:
       `Access Key` in addition. You WILL get an error if you run anything else 
       before this script. There is also a jupyter notebbok for those who want to
       use that instead.
-  - 4.4) You should now be able to run the main script, `fantays_stats.py`
+  - 4.4) You should now be able to run the main script, `fantasy_stats.py`
   - *4.5) You can disable this scripts access to your league by going to your
       Yahoo Account Info --> Recent Activity --> Apps Connected to Your Account
       --> 'remove' access to your created app*
