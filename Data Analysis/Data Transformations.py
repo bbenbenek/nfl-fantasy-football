@@ -31,6 +31,12 @@ if not oauth.token_is_valid():
 with open('../Initial_Setup/league_info_form.txt', 'r') as f:
     rosters = eval(f.read())
 
+league_id = str(rosters['league_id'])
+
+with open('../YahooGameInfo.json', 'r') as f:
+    yahoo_info = json.load(f)
+game_key = yahoo_info['fantasy_content']['game'][0]['game_key']
+
 
 columns = ['first', 'last', 'full', 'team',
            'manager_name', 'ros_pos', 'position',
@@ -114,7 +120,7 @@ for week in range(1, rosters['num_weeks']+1): #16 weeks total
                 pass
 
             # URL to get player points each week from Yahoo API
-            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.155909/players;player_keys='+str(player_key)+'/stats;type=week;week='+str(week)
+            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/'+game_key+'.l.'+league_id+'/players;player_keys='+str(player_key)+'/stats;type=week;week='+str(week)
             response = oauth.session.get(url, params={'format': 'json'})
             player_points_json = response.json()
             player_points = float(player_points_json['fantasy_content']['league'][1]['players']['0']['player'][1]['player_points']['total'])
