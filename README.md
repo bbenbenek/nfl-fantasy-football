@@ -64,7 +64,7 @@ the extension back to .json.
 
 ## Background Information
 
-Yahoo has been hellbent on killing their API for the last few years. In an
+Yahoo has not updated their API documentation for quite some time. In an
 effort to try and gather some raw data from my fantasy football league I
 pieced together 3 different libraries previously used to  access the Yahoo API.
 This was a trial and error method since each library hadn't been updated in a
@@ -98,8 +98,13 @@ league:
   It's generated in the UpdateYahooLeagueInfo() function.
     - Game Keys for previous years can be manually overwritten by replacing the 'game_key'
     variable with the specific year you want to see. Note, you will also need the previous 
-    years' league_id as well. 
-      - 2018 Game Key for NFL is '380'; 2019 is '390
+    years' league_id as well. You can use the following URL to access specific seasons, or multiple:
+    url = 'https://fantasysports.yahooapis.com/fantasy/v2/games;game_codes=nfl;seasons=2020,2021'
+    For quick reference, the Game Key for the NFL for the last few seasons are:
+      - 2018 : '380'
+      - 2019 : '390'
+      - 2020 : '399'
+      - 2021 : '406'
     
 2. __Update /teams/team_numbers.txx, team_mapping_full.txt, and team_mapping_initials.txt__
   - 2.1) For first time users, update the manager's nickname/real name for each
