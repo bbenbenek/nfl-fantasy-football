@@ -268,7 +268,7 @@ def main():
     num_weeks = rosters['num_weeks']
     
     global league_id
-    league_id = str(rosters['league_id])
+    league_id = str(rosters['league_id'])
 
 #### Where the tweets happen ####
     bot = Bot(yahoo_api)
