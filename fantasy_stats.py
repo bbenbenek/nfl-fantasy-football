@@ -3,6 +3,9 @@ from yahoo_oauth import OAuth2
 import json
 from json import dumps
 import datetime
+import time
+import os
+JASON_CUSTOM = True
 
 class Yahoo_Api():
     def __init__(self, consumer_key, consumer_secret,
@@ -190,7 +193,7 @@ class UpdateData():
             r = response.json()
             file_name = 'week_' + str(week) + 'scoreboard.json'
             with open('./weekly_scoreboard/'+file_name, 'w') as outfile:
-                json.dump(r, outfile)
+                json.dump(r, outfile, indent=4)
             week += 1
         return;
 
@@ -270,9 +273,14 @@ def main():
     global league_id
     league_id = str(rosters['league_id'])
 
-#### Where the tweets happen ####
+    #### Where the tweets happen ####
     bot = Bot(yahoo_api)
     bot.run()
+
+    if JASON_CUSTOM:
+        jason = Jason(yahoo_api)
+        jason.collect_data()
+
 
 
 class Bot():
@@ -302,6 +310,38 @@ class Bot():
         print('Rosters update - Done')
                            
         print('Update Complete')
+
+
+class Jason():
+    def __init__(self, yahoo_api):
+        self._yahoo_api = yahoo_api
+        self.week = '9'
+        self.path = './week_{}_scoreboards'.format(self.week)
+        self.interval = 30
+        self.runtime = 7 * 60 * 60
+        self.url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/{}.l.{}/scoreboard;week={}'.format(game_key, league_id, self.week)
+
+    def collect_data(self):
+        self._yahoo_api._login()
+        if not os.path.exists('./week_{}_scoreboards'.format(self.week)):
+            os.mkdir('./week_{}_scoreboards'.format(self.week))
+        start_time = time.time()
+        while True:
+            response = oauth.session.get(self.url, params={'format': 'json'})
+            r = response.json()
+            timestamp = str(int(time.time()))
+            file_name = 'week_{}_scoreboard_{}.json'.format(self.week, timestamp)
+            with open('./week_{}_scoreboards/{}'.format(self.week, file_name), 'w') as outfile:
+                json.dump(r, outfile, indent=4)
+            time.sleep(self.interval)
+            if time.time() >= start_time + self.runtime:
+                print('Total time: {}s'.format(time.time() - start_time))
+                break
+
+    def parse_data(self):
+        for file in os.listdir(self.path):
+            pass
+
 
 if __name__ == "__main__":
     main()
