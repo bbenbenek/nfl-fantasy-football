@@ -1,7 +1,7 @@
 week_*_scoreboards
-rosters/week*
-weekly_scoreboard/*
-transactions/*
+rosters/
+weekly_scoreboard/
+transactions/
 .DS_Store
 auth/oauth2yahoo.json
 YahooGameInfo.json
