@@ -1,9 +1,32 @@
 week_*_scoreboards
-rosters/
-weekly_scoreboard/
-transactions/
+
+# MacOS
 .DS_Store
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+*.pyc
+__pycache__
+*.egg-info
+/dist
+
+# Jupyter
+.ipynb_checkpoints
+
+# OAuth
 auth/oauth2yahoo.json
 YahooGameInfo.json
 league.json
 standings.json
+rosters/
+weekly_scoreboard/
+transactions/
+
