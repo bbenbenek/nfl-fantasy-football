@@ -186,12 +186,12 @@ for week in range(1, rosters['num_weeks']+1): #16 weeks total
                 # Master list of players and Scores
                 df_players.loc['TE'] = pd.Series({'player_key': player_key})
 
-            elif roster_position == 'W/R/T':
-                df_team.loc['W/R/T'] = player_full_stats
-                df_manager_team.loc['W/R/T'] = pd.Series({'manager_name': full_name}) # contains managers name and the players full name
-                df_points.loc['W/R/T'] = pd.Series({'player_points': player_points})
+            elif roster_position == 'Q/W/R/T':
+                df_team.loc['Q/W/R/T'] = player_full_stats
+                df_manager_team.loc['Q/W/R/T'] = pd.Series({'manager_name': full_name}) # contains managers name and the players full name
+                df_points.loc['Q/W/R/T'] = pd.Series({'player_points': player_points})
                 # Master list of players and Scores
-                df_players.loc['W/R/T'] = pd.Series({'player_key': player_key})
+                df_players.loc['Q/W/R/T'] = pd.Series({'player_key': player_key})
 
             elif roster_position == 'K':
                 df_team.loc['K'] = player_full_stats
