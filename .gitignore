@@ -21,10 +21,12 @@ __pycache__
 # Jupyter
 .ipynb_checkpoints
 
-rosters/
-weekly_scoreboard/
-transactions/
+# OAuth
 auth/oauth2yahoo.json
 YahooGameInfo.json
 league.json
 standings.json
+rosters/
+weekly_scoreboard/
+transactions/
+
