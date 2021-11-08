@@ -1,2 +1,22 @@
 week_*_scoreboards
+
+# MacOS
 .DS_Store
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+*.pyc
+__pycache__
+*.egg-info
+/dist
+
+# Jupyter
+.ipynb_checkpoints
