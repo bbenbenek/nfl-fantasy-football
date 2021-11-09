@@ -31,7 +31,7 @@ def parse_data(response):
 
 
 class Fantasy:
-    def __init__(self, week):
+    def __init__(self, week, reset=False):
         self.oauth = OAuth2(None, None, from_file='./auth/oauth2yahoo.json')
         self.base_url = 'https://fantasysports.yahooapis.com/fantasy/v2/'
         self.game_key = self.update_yahoo_game_key()
@@ -39,7 +39,8 @@ class Fantasy:
         self.week = week
         self.interval = 30
         self.output_path = 'week_{}_scores.csv'.format(self.week)
-        self.initialize_file()
+        if reset:
+            self.initialize_file()
         self.string_check = []
         self.current_string = ''
 
@@ -102,15 +103,18 @@ class Fantasy:
         print('Elapsed time: {}'.format(time.time() - start_time))
 
 
-def main(week):
-    fantasy = Fantasy(week)
+def main(week, reset):
+    fantasy = Fantasy(week, reset)
     fantasy.collect_data()
 
 
 if __name__ == '__main__':
     argv = sys.argv
-    if len(argv) == 2:
+    reset_flag = False
+    if len(argv) >= 2:
         week_num = str(argv[1])
-        main(week_num)
+        if '-r' in argv:
+            reset_flag = True
+        main(week_num, reset_flag)
     else:
         print('Argument error')

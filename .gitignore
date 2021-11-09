@@ -1,4 +1,11 @@
-week_*_scoreboards
+# Created at Runtime
+YahooGameInfo.json
+league.json
+standings.json
+rosters/
+weekly_scoreboard/
+transactions/
+week_*_scores.csv
 
 # MacOS
 .DS_Store
@@ -23,10 +30,4 @@ __pycache__
 
 # OAuth
 auth/oauth2yahoo.json
-YahooGameInfo.json
-league.json
-standings.json
-rosters/
-weekly_scoreboard/
-transactions/
 
