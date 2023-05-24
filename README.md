@@ -101,14 +101,17 @@ league:
     years' league_id as well. You can use the following URL to access specific seasons, or multiple:
     url = 'https://fantasysports.yahooapis.com/fantasy/v2/games;game_codes=nfl;seasons=2020,2021'
     For quick reference, the Game Key for the NFL for the last few seasons are:
-      - 2015 : '348'
-      - 2016 : '359'
-      - 2017 : '371'
-      - 2018 : '380'
-      - 2019 : '390'
-      - 2020 : '399'
-      - 2021 : '406'
-      - 2022 : '414'
+
+      | Year | Game Key |
+      | ---- | -------- |
+      | 2015 | 348 |
+      | 2016 | 359 |
+      | 2017 | 371 |
+      | 2018 | 380 |
+      | 2019 | 390 |
+      | 2020 | 399 |
+      | 2021 | 406 |
+      | 2022 | 414 |
     
 2. __Update /teams/team_numbers.txx, team_mapping_full.txt, and team_mapping_initials.txt__
   - 2.1) For first time users, update the manager's nickname/real name for each
